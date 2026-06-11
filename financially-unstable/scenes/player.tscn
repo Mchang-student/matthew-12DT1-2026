@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d1hsonn8bmhoh"]
+
+[ext_resource type="Script" uid="uid://cuowba2jnfnpc" path="res://scripts/player.gd" id="1_3vyb7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3vyb7"]
+radius = 81.09871
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1463893504 node_paths=PackedStringArray("pivot")]
+script = ExtResource("1_3vyb7")
+pivot = NodePath("Pivot")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=1946513732]
+
+[node name="ColorRect" type="ColorRect" parent="Pivot" unique_id=385265522]
+offset_left = -99.0
+offset_top = -86.0
+offset_right = 105.0
+offset_bottom = 81.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1057324689]
+shape = SubResource("CircleShape2D_3vyb7")
