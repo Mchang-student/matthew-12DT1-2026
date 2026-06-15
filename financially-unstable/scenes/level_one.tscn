@@ -1,8 +1,50 @@
 [gd_scene format=3 uid="uid://cqhmio5dy80jd"]
 
 [ext_resource type="PackedScene" uid="uid://d1hsonn8bmhoh" path="res://scenes/player.tscn" id="1_cd1xg"]
+[ext_resource type="Texture2D" uid="uid://cumvula42ylbh" path="res://Assets/Level 1 backround.png" id="1_t18mc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t18mc"]
+bg_color = Color(0.47899103, 0.46290696, 0.44930053, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_843q2"]
+bg_color = Color(1, 0, 0.11372549, 1)
 
 [node name="Node2D" type="Node2D" unique_id=2141655706]
 
-[node name="CharacterBody2D" parent="." unique_id=2047947640 instance=ExtResource("1_cd1xg")]
-position = Vector2(525, 253)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1938214241]
+position = Vector2(1497.5001, 714.25)
+scale = Vector2(2.778646, 2.5516975)
+texture = ExtResource("1_t18mc")
+
+[node name="CharacterBody2D" parent="." unique_id=2047947640 node_paths=PackedStringArray("health_ui", "health_label") instance=ExtResource("1_cd1xg")]
+position = Vector2(882, 496)
+health_ui = NodePath("../CanvasLayer/ProgressBar")
+health_label = NodePath("../CanvasLayer/Label")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1290351362]
+limit_left = -100
+limit_top = -100
+limit_right = 3000
+limit_bottom = 1500
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=623217603]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=230240359]
+offset_left = 24.0
+offset_top = 15.0
+offset_right = 335.0
+offset_bottom = 62.0
+theme_override_styles/background = SubResource("StyleBoxFlat_t18mc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_843q2")
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=2077044969]
+offset_left = 122.0
+offset_top = 21.0
+offset_right = 306.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 20

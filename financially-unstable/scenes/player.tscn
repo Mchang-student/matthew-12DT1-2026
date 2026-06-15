@@ -1,21 +1,47 @@
 [gd_scene format=3 uid="uid://d1hsonn8bmhoh"]
 
 [ext_resource type="Script" uid="uid://cuowba2jnfnpc" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://c0qkll57y5uoa" path="res://Assets/Roberto.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://cq2jq6v4e11vs" path="res://Assets/frame0000.png" id="3_qhqgy"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3vyb7"]
-radius = 81.09871
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
+radius = 45.0
+height = 142.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1463893504 node_paths=PackedStringArray("pivot")]
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2els"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g2els")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qhqgy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g2els")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1463893504 node_paths=PackedStringArray("pivot", "animated_sprite")]
 script = ExtResource("1_3vyb7")
 pivot = NodePath("Pivot")
+animated_sprite = NodePath("AnimatedSprite2D")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=1946513732]
 
-[node name="ColorRect" type="ColorRect" parent="Pivot" unique_id=385265522]
-offset_left = -99.0
-offset_top = -86.0
-offset_right = 105.0
-offset_bottom = 81.0
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1057324689]
-shape = SubResource("CircleShape2D_3vyb7")
+position = Vector2(-2, -1)
+shape = SubResource("CapsuleShape2D_qhqgy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=762923403]
+position = Vector2(3.999996, 5.5)
+scale = Vector2(1.4814816, 1.4907409)
+sprite_frames = SubResource("SpriteFrames_g2els")
