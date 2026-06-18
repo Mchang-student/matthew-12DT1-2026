@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dm30aos1hx7pb"]
+
+[ext_resource type="Script" uid="uid://dplelcvhub443" path="res://scripts/enemy.gd" id="1_uyao4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a5vsf"]
+radius = 25.0
+height = 98.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uyao4"]
+radius = 27.0
+height = 102.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=562531961]
+script = ExtResource("1_uyao4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=134687155]
+shape = SubResource("CapsuleShape2D_a5vsf")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1196651238]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1952319684]
+shape = SubResource("CapsuleShape2D_uyao4")
