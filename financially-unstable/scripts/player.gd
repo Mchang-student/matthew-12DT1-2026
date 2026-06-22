@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed: float = 300.0
+var speed: float = 400.0
 var health : int = 100
 
 @export var pivot: Node2D
@@ -30,10 +30,10 @@ func _process(delta: float) -> void:
 			animated_sprite.flip_h = false
 	else: animated_sprite.play("idle")
 
-func take_damage() -> void:
-	if health > 1:
-		health -= 1
+func take_damage(amount: int) -> void:
+	if health > amount:
+		health -= amount
 		health_label.text = "" + str(health) + "/10"
-		
+		health_ui.value = health
 	else: 
-		get_tree.call_deferred("reload_current_scene")
+		get_tree().call_deferred("reload_current_scene")

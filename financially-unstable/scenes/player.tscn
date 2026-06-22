@@ -30,7 +30,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1463893504 node_paths=PackedStringArray("pivot", "animated_sprite")]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1463893504 node_paths=PackedStringArray("pivot", "animated_sprite") groups=["player"]]
 script = ExtResource("1_3vyb7")
 pivot = NodePath("Pivot")
 animated_sprite = NodePath("AnimatedSprite2D")
