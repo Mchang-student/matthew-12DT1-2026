@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dm30aos1hx7pb"]
 
 [ext_resource type="Script" uid="uid://dplelcvhub443" path="res://scripts/enemy.gd" id="1_uyao4"]
+[ext_resource type="Texture2D" uid="uid://brmt4fpa21414" path="res://Assets/fries.png" id="2_hahyd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a5vsf"]
 radius = 25.0
@@ -21,10 +22,9 @@ shape = SubResource("CapsuleShape2D_a5vsf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1952319684]
 shape = SubResource("CapsuleShape2D_uyao4")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1721616373]
-offset_left = -26.0
-offset_top = -50.0
-offset_right = 26.0
-offset_bottom = 50.0
+[node name="Fries" type="Sprite2D" parent="." unique_id=899535836]
+position = Vector2(-2.000001, 19)
+scale = Vector2(1.7824075, 2.0740743)
+texture = ExtResource("2_hahyd")
 
 [connection signal="body_entered" from="Area2D" to="." method="_damage_player"]

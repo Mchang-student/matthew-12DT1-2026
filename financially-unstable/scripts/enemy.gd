@@ -13,8 +13,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if not player == null:
-		look_at(player.global_position)
-		velocity = Vector2(1,0) .rotated(rotation) * speed
+		var direction = (player.global_position - global_position).normalized()
+		velocity = direction * speed
 		
 		move_and_slide()
 		

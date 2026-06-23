@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cq2jq6v4e11vs" path="res://Assets/frame0000.png" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
-radius = 45.0
+radius = 34.0
 height = 142.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g2els"]
