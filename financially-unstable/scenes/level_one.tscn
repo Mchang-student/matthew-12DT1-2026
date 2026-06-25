@@ -117,6 +117,8 @@ position = Vector2(1327, 995)
 shape = SubResource("CircleShape2D_5rfim")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=662713977]
+visibility_layer = 2
+z_index = -1
 position = Vector2(1329.0001, -15.000008)
 scale = Vector2(3.6159563, 3.8512406)
 texture = ExtResource("5_r4wdr")

@@ -19,9 +19,9 @@ func _process(delta: float) -> void:
 		move_and_slide()
 		
 func take_damage() -> void:
-	if health > 0:
-		health -= 1
-	else:
+	health -= 1
+	print("enemy health: ", health)
+	if health <= 0:
 		queue_free()
 		
 func _damage_player(body: Node2D) -> void:
