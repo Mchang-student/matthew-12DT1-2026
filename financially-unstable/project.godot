@@ -14,6 +14,10 @@ config/name="Financially Unstable"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/Matthew/Videos/Captures/prototype.avi"
+
 [input]
 
 ui_left={

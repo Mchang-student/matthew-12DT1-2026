@@ -26,23 +26,27 @@ func _process(delta: float) -> void:
 	
 	pivot.look_at(get_global_mouse_position())
 	
-	if direction != Vector2.ZERO:
+	if direction != Vector2.ZERO and not is_punching:
 		animated_sprite.play("default")
-		if direction.x > 0:
+	elif not is_punching:
+		animated_sprite.play("idle")
+	
+	if not is_punching:
+		if get_global_mouse_position().x < global_position.x:
 			animated_sprite.flip_h = true
-		elif direction.x < 0:
+		else:
 			animated_sprite.flip_h = false
-	else: animated_sprite.play("idle")
 	
 	if Input.is_action_just_pressed("ui_punch") and not is_punching:
 		_start_punch()
 		
 func _start_punch() -> void:
-	print("punch started")
 	is_punching = true
-	#animated_sprite.play("punch")
+	print("playing punching animation")
+	animated_sprite.play("punch")
 	punch_collision.disabled = false
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.2).timeout
+	punch_collision.disabled = true
 	is_punching = false
 
 func take_damage(amount: int) -> void:
