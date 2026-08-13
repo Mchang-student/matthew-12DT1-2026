@@ -3,12 +3,18 @@ extends CharacterBody2D
 var speed: float = 400.0
 var health : int = 100
 var is_punching: bool = false
+var rage: float = 0.0
+var max_rage : float = 100.0
+var is_enraged : bool = false
+
+
 
 @export var pivot: Node2D
 @export var animated_sprite: AnimatedSprite2D
 @export var health_ui: ProgressBar
 @export var health_label : Label
 @export var punch_collision: CollisionShape2D
+@export var rage_ui : ProgressBar
 
 func _ready() -> void:
 	health_ui.max_value = health
@@ -52,7 +58,7 @@ func _start_punch() -> void:
 func take_damage(amount: int) -> void:
 	if health > amount:
 		health -= amount
-		health_label.text = "" + str(health) + "/10"
+		health_label.text = "" + str(health) + "/100"
 		health_ui.value = health
 	else: 
 		get_tree().call_deferred("reload_current_scene")
@@ -62,3 +68,18 @@ func _punch(body: Node2D) -> void:
 	print("Punch hit: ", body.name) 
 	if body.has_method("take_damage"):
 		body.take_damage()
+		rage += 20.0
+		rage = min(rage, max_rage)
+		rage_ui.value = rage
+		if rage >= max_rage and not is_enraged:
+			_activate_rage()
+			
+func _activate_rage() -> void:
+	is_enraged = true
+	speed = 700.0
+	print("RAGE ACTIVATED")
+	await get_tree().create_timer(5.0).timeout
+	speed = 400.0
+	is_enraged = false
+	rage = 0.0 
+	rage_ui.value = 0.0

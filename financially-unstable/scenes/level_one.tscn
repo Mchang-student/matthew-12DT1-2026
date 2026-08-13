@@ -49,10 +49,11 @@ radius = 90.0
 
 [node name="Node2D" type="Node2D" unique_id=2141655706]
 
-[node name="CharacterBody2D" parent="." unique_id=2047947640 node_paths=PackedStringArray("health_ui", "health_label") instance=ExtResource("1_cd1xg")]
+[node name="CharacterBody2D" parent="." unique_id=2047947640 node_paths=PackedStringArray("health_ui", "health_label", "rage_ui") instance=ExtResource("1_cd1xg")]
 position = Vector2(875, 742)
 health_ui = NodePath("../CanvasLayer/ProgressBar")
 health_label = NodePath("../CanvasLayer/Label")
+rage_ui = NodePath("../CanvasLayer/RageProgressBar")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1290351362]
 position = Vector2(-3, 67)
@@ -83,6 +84,17 @@ offset_top = 21.0
 offset_right = 306.0
 offset_bottom = 55.0
 theme_override_font_sizes/font_size = 20
+
+[node name="RageProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=2145405824]
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=695816662]
+anchors_preset = -1
+offset_left = 24.0
+offset_top = 69.0
+offset_right = 418.0
+offset_bottom = 169.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2081261069]
 
