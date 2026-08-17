@@ -12,6 +12,12 @@ bg_color = Color(0.47899103, 0.46290696, 0.44930053, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_843q2"]
 bg_color = Color(1, 0, 0.11372549, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4wdr"]
+bg_color = Color(0.40784314, 0.1254902, 0.8392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhu28"]
+bg_color = Color(0.4074981, 0.12700713, 0.84011555, 1)
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t18mc"]
 normal = Vector2(0.002659565, -0.9999964)
 distance = -1541.9867
@@ -86,11 +92,14 @@ offset_bottom = 55.0
 theme_override_font_sizes/font_size = 20
 
 [node name="RageProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=2145405824]
-offset_right = 4.0
-offset_bottom = 27.0
+offset_left = 24.0
+offset_top = 69.0
+offset_right = 321.0
+offset_bottom = 98.0
+theme_override_styles/background = SubResource("StyleBoxFlat_r4wdr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bhu28")
 
 [node name="Label2" type="Label" parent="CanvasLayer" unique_id=695816662]
-anchors_preset = -1
 offset_left = 24.0
 offset_top = 69.0
 offset_right = 418.0
@@ -125,7 +134,7 @@ scale = Vector2(0.5443787, 0.57384837)
 texture = ExtResource("4_5rfim")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody fountain" unique_id=897395431]
-position = Vector2(1327, 995)
+position = Vector2(1328, 995)
 shape = SubResource("CircleShape2D_5rfim")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=662713977]

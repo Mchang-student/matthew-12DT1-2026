@@ -78,7 +78,7 @@ func _activate_rage() -> void:
 	is_enraged = true
 	speed = 700.0
 	print("RAGE ACTIVATED")
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(10.0).timeout
 	speed = 400.0
 	is_enraged = false
 	rage = 0.0 
