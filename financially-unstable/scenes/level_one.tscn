@@ -83,6 +83,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_843q2")
 step = 1.0
 value = 100.0
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=2077044969]
 offset_left = 122.0
@@ -149,3 +150,6 @@ position = Vector2(1181, 1390)
 
 [node name="CharacterBody2D3" parent="." unique_id=562531961 instance=ExtResource("6_bhu28")]
 position = Vector2(173, 1303)
+
+[node name="CharacterBody2D4" parent="." unique_id=1322115759 instance=ExtResource("6_bhu28")]
+position = Vector2(47, 318)
