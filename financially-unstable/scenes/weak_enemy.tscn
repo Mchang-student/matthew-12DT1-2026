@@ -17,7 +17,7 @@ bg_color = Color(1, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwnhp"]
 bg_color = Color(0, 1, 0.25490198, 1)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=562531961 node_paths=PackedStringArray("health_ui")]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=562531961 node_paths=PackedStringArray("health_ui") groups=["enemy"]]
 collision_layer = 2
 script = ExtResource("1_uyao4")
 health_ui = NodePath("HealthBar")
@@ -25,7 +25,7 @@ health_ui = NodePath("HealthBar")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=134687155]
 shape = SubResource("CapsuleShape2D_a5vsf")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1196651238 groups=["enemy"]]
+[node name="Area2D" type="Area2D" parent="." unique_id=1196651238]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1952319684]
 shape = SubResource("CapsuleShape2D_uyao4")

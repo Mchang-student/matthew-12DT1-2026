@@ -1,10 +1,12 @@
 [gd_scene format=4 uid="uid://cqhmio5dy80jd"]
 
-[ext_resource type="PackedScene" uid="uid://d1hsonn8bmhoh" path="res://scenes/player.tscn" id="1_cd1xg"]
-[ext_resource type="Texture2D" uid="uid://bxfu241rxbwdt" path="res://Assets/level 1 tilemap.png" id="3_843q2"]
-[ext_resource type="Texture2D" uid="uid://bufx7libqi2hy" path="res://Assets/4fbe4343-e23f-4565-8c1e-0b6c3a752942-removebg-preview.png" id="4_5rfim"]
-[ext_resource type="Texture2D" uid="uid://b3pv7slm8qegj" path="res://Assets/coremansion.png" id="5_r4wdr"]
-[ext_resource type="PackedScene" uid="uid://dm30aos1hx7pb" path="res://scenes/weak_enemy.tscn" id="6_bhu28"]
+[ext_resource type="PackedScene" uid="uid://d1hsonn8bmhoh" path="res://scenes/player.tscn" id="1_4nkto"]
+[ext_resource type="Texture2D" uid="uid://bxfu241rxbwdt" path="res://Assets/level 1 tilemap.png" id="2_fcfvj"]
+[ext_resource type="Texture2D" uid="uid://bufx7libqi2hy" path="res://Assets/4fbe4343-e23f-4565-8c1e-0b6c3a752942-removebg-preview.png" id="3_pa8r4"]
+[ext_resource type="PackedScene" uid="uid://dm30aos1hx7pb" path="res://scenes/weak_enemy.tscn" id="4_15mv3"]
+[ext_resource type="Texture2D" uid="uid://b3pv7slm8qegj" path="res://Assets/coremansion.png" id="5_e3sih"]
+[ext_resource type="Script" uid="uid://wxb4oph44iaj" path="res://scripts/car.gd" id="6_fcfvj"]
+[ext_resource type="Texture2D" uid="uid://b7rh77mpvir6n" path="res://Assets/RonGt3RS.png" id="7_pa8r4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t18mc"]
 bg_color = Color(0.47899103, 0.46290696, 0.44930053, 1)
@@ -35,7 +37,7 @@ normal = Vector2(0.009999501, 0.99995005)
 distance = -38.71806
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5rfim"]
-texture = ExtResource("3_843q2")
+texture = ExtResource("2_fcfvj")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -62,9 +64,12 @@ size = Vector2(1005, 217)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4p75b"]
 size = Vector2(1041, 206)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pa8r4"]
+size = Vector2(259.5, 140)
+
 [node name="Node2D" type="Node2D" unique_id=2141655706]
 
-[node name="CharacterBody2D" parent="." unique_id=2047947640 node_paths=PackedStringArray("health_ui", "health_label", "rage_ui") instance=ExtResource("1_cd1xg")]
+[node name="CharacterBody2D" parent="." unique_id=2047947640 node_paths=PackedStringArray("health_ui", "health_label", "rage_ui") instance=ExtResource("1_4nkto")]
 z_index = 2
 position = Vector2(875, 742)
 health_ui = NodePath("../CanvasLayer/ProgressBar")
@@ -144,19 +149,19 @@ position = Vector2(-30, 0)
 [node name="Fountain sprite" type="Sprite2D" parent="StaticBody fountain" unique_id=1550993463]
 position = Vector2(1511.5, 1001.9375)
 scale = Vector2(0.7233728, 0.75304884)
-texture = ExtResource("4_5rfim")
+texture = ExtResource("3_pa8r4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody fountain" unique_id=897395431]
 position = Vector2(1511, 1000.875)
 shape = SubResource("CircleShape2D_5rfim")
 
-[node name="CharacterBody2D2" parent="." unique_id=27957961 instance=ExtResource("6_bhu28")]
+[node name="CharacterBody2D2" parent="." unique_id=27957961 instance=ExtResource("4_15mv3")]
 position = Vector2(1181, 1390)
 
-[node name="CharacterBody2D3" parent="." unique_id=562531961 instance=ExtResource("6_bhu28")]
+[node name="CharacterBody2D3" parent="." unique_id=562531961 instance=ExtResource("4_15mv3")]
 position = Vector2(173, 1303)
 
-[node name="CharacterBody2D4" parent="." unique_id=1322115759 instance=ExtResource("6_bhu28")]
+[node name="CharacterBody2D4" parent="." unique_id=1322115759 instance=ExtResource("4_15mv3")]
 position = Vector2(85, 411)
 
 [node name="StaticBodyMansion" type="StaticBody2D" parent="." unique_id=744247965]
@@ -180,4 +185,17 @@ shape = SubResource("RectangleShape2D_4p75b")
 z_index = -1
 position = Vector2(1302.0001, 14.999999)
 scale = Vector2(3.6367898, 3.8515916)
-texture = ExtResource("5_r4wdr")
+texture = ExtResource("5_e3sih")
+
+[node name="Car" type="Area2D" parent="." unique_id=896742336]
+script = ExtResource("6_fcfvj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Car" unique_id=886473372]
+position = Vector2(2876.75, 1000)
+shape = SubResource("RectangleShape2D_pa8r4")
+
+[node name="RonGt3rs" type="Sprite2D" parent="Car" unique_id=1928604015]
+position = Vector2(2888, 1001)
+rotation = 3.1415925
+scale = Vector2(0.4955687, 0.5785908)
+texture = ExtResource("7_pa8r4")
