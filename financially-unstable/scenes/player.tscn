@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://cdc3veoxd4h26" path="res://Assets/frame0003.png" id="5_tuyoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
-size = Vector2(69, 72)
+size = Vector2(119.5, 105)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
-radius = 34.0
-height = 142.0
+radius = 47.0
+height = 212.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g2els"]
 animations = [{
@@ -47,6 +47,7 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1463893504 node_paths=PackedStringArray("pivot", "animated_sprite", "punch_collision") groups=["player"]]
+position = Vector2(5, 0)
 script = ExtResource("1_3vyb7")
 pivot = NodePath("Pivot")
 animated_sprite = NodePath("AnimatedSprite2D")
@@ -58,17 +59,17 @@ punch_collision = NodePath("Pivot/PunchArea/CollisionShape2D")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/PunchArea" unique_id=1798398972]
-position = Vector2(57.5, 22)
+position = Vector2(81, 8.5)
 shape = SubResource("RectangleShape2D_qhqgy")
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1057324689]
-position = Vector2(-2, -1)
+position = Vector2(-1, -1)
 shape = SubResource("CapsuleShape2D_qhqgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=762923403]
-position = Vector2(3.999996, 5.5)
-scale = Vector2(1.4814816, 1.4907409)
+position = Vector2(4.9999695, 4)
+scale = Vector2(2.027778, 2.1574075)
 sprite_frames = SubResource("SpriteFrames_g2els")
 
 [connection signal="body_entered" from="Pivot/PunchArea" to="." method="_punch"]

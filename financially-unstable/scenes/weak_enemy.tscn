@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://brmt4fpa21414" path="res://Assets/fries.png" id="2_hahyd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a5vsf"]
-radius = 25.0
-height = 98.0
+radius = 39.0
+height = 124.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uyao4"]
-radius = 27.0
-height = 102.0
+radius = 43.0
+height = 130.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=562531961]
 collision_layer = 2
@@ -24,8 +24,8 @@ shape = SubResource("CapsuleShape2D_a5vsf")
 shape = SubResource("CapsuleShape2D_uyao4")
 
 [node name="Fries" type="Sprite2D" parent="." unique_id=899535836]
-position = Vector2(-2.000001, 19)
-scale = Vector2(1.7824075, 2.0740743)
+position = Vector2(-6.1035156e-05, 27)
+scale = Vector2(2.5578704, 2.7500002)
 texture = ExtResource("2_hahyd")
 
 [connection signal="body_entered" from="Area2D" to="." method="_damage_player"]

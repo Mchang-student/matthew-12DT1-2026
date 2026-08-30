@@ -8,13 +8,12 @@ var max_rage : float = 100.0	#rage meter cap
 var is_enraged : bool = false	#tracks if rage mode is active
 
 
-
-@export var pivot: Node2D		#
-@export var animated_sprite: AnimatedSprite2D
-@export var health_ui: ProgressBar
-@export var health_label : Label
-@export var punch_collision: CollisionShape2D
-@export var rage_ui : ProgressBar
+@export var pivot: Node2D							#node used to aim/rotate toward the mouse
+@export var animated_sprite: AnimatedSprite2D		#player sprite animations
+@export var health_ui: ProgressBar					#health bar UI
+@export var health_label : Label					#health text label
+@export var punch_collision: CollisionShape2D		#hitbox that turns on during a punch
+@export var rage_ui : ProgressBar					#rage bar UI
 
 func _ready() -> void:
 	#set up health bar and label with starting values
@@ -72,18 +71,19 @@ func _punch(body: Node2D) -> void:
 	print("Punch hit: ", body.name) 
 	if body.has_method("take_damage"):
 		body.take_damage()
-		rage += 20.0
-		rage = min(rage, max_rage)
+		rage += 20.0		#build rage on a sucessful hit, capped at max_rage
+		rage = min(rage, max_rage) 
 		rage_ui.value = rage
-		if rage >= max_rage and not is_enraged:
+		if rage >= max_rage and not is_enraged: 	#trigger rage mode once the bar if full
 			_activate_rage()
 			
 func _activate_rage() -> void:
+	#temporary speed boost when rage mode is on
 	is_enraged = true
 	speed = 700.0
 	print("RAGE ACTIVATED")
-	await get_tree().create_timer(10.0).timeout
-	speed = 400.0
+	await get_tree().create_timer(10.0).timeout 
+	speed = 400.0 		#reset speed back to normal 
 	is_enraged = false
-	rage = 0.0 
+	rage = 0.0  		#reset rage
 	rage_ui.value = 0.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnmmb4qi3rbtl"
-path="res://.godot/imported/ed1a3947-ba3a-4785-8717-359ca43540be-removebg-preview.png-734deac2400cac5f5af26d694245d7f1.ctex"
+uid="uid://b3pv7slm8qegj"
+path="res://.godot/imported/coremansion.png-7505b5ef69fd414545231dd2579f9168.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ed1a3947-ba3a-4785-8717-359ca43540be-removebg-preview.png"
-dest_files=["res://.godot/imported/ed1a3947-ba3a-4785-8717-359ca43540be-removebg-preview.png-734deac2400cac5f5af26d694245d7f1.ctex"]
+source_file="res://Assets/coremansion.png"
+dest_files=["res://.godot/imported/coremansion.png-7505b5ef69fd414545231dd2579f9168.ctex"]
 
 [params]
 
