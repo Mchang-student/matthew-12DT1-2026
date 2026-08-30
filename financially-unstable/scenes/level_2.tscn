@@ -1,3 +1,68 @@
 [gd_scene format=3 uid="uid://c42pw6sha2eb7"]
 
+[ext_resource type="PackedScene" uid="uid://d1hsonn8bmhoh" path="res://scenes/player.tscn" id="1_3bmlt"]
+[ext_resource type="Texture2D" uid="uid://d31fx0sgpj7p7" path="res://Assets/Level2Backround.png" id="2_jm1iu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3bmlt"]
+bg_color = Color(0.47899103, 0.46290696, 0.44930053, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jm1iu"]
+bg_color = Color(1, 0, 0.11372549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbc48"]
+bg_color = Color(0.40784314, 0.1254902, 0.8392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqxsl"]
+bg_color = Color(0.4074981, 0.12700713, 0.84011555, 1)
+
 [node name="Node2D" type="Node2D" unique_id=761416984]
+
+[node name="Player" parent="." unique_id=1463893504 node_paths=PackedStringArray("health_ui", "health_label", "rage_ui") instance=ExtResource("1_3bmlt")]
+position = Vector2(142, 268)
+health_ui = NodePath("../CanvasLayer/ProgressBar")
+health_label = NodePath("../CanvasLayer/Label")
+rage_ui = NodePath("../CanvasLayer/RageProgressBar")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=828214909]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1489979594]
+offset_left = 24.0
+offset_top = 15.0
+offset_right = 335.0
+offset_bottom = 62.0
+theme_override_styles/background = SubResource("StyleBoxFlat_3bmlt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jm1iu")
+step = 1.0
+value = 100.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=2019305961]
+offset_left = 122.0
+offset_top = 21.0
+offset_right = 306.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="RageProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1254516925]
+offset_left = 24.0
+offset_top = 69.0
+offset_right = 321.0
+offset_bottom = 98.0
+theme_override_styles/background = SubResource("StyleBoxFlat_pbc48")
+theme_override_styles/fill = SubResource("StyleBoxFlat_eqxsl")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=1029255663]
+offset_left = 24.0
+offset_top = 69.0
+offset_right = 418.0
+offset_bottom = 169.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Level2Backround" type="Sprite2D" parent="." unique_id=1298901392]
+z_index = -1
+position = Vector2(576, 324)
+scale = Vector2(5.9999995, 6)
+texture = ExtResource("2_jm1iu")
