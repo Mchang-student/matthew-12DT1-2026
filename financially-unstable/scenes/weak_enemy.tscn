@@ -11,9 +11,16 @@ height = 124.0
 radius = 43.0
 height = 130.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=562531961]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hahyd"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwnhp"]
+bg_color = Color(0, 1, 0.25490198, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=562531961 node_paths=PackedStringArray("health_ui")]
 collision_layer = 2
 script = ExtResource("1_uyao4")
+health_ui = NodePath("HealthBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=134687155]
 shape = SubResource("CapsuleShape2D_a5vsf")
@@ -27,5 +34,17 @@ shape = SubResource("CapsuleShape2D_uyao4")
 position = Vector2(-6.1035156e-05, 27)
 scale = Vector2(2.5578704, 2.7500002)
 texture = ExtResource("2_hahyd")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1892135923]
+offset_left = -60.0
+offset_top = -111.0
+offset_right = 64.0
+offset_bottom = -84.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hahyd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lwnhp")
+max_value = 3.0
+step = 1.0
+value = 3.0
+show_percentage = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_damage_player"]

@@ -3,13 +3,15 @@ extends CharacterBody2D
 var speed: float = 250.0
 var player : CharacterBody2D
 var health: int = 3
-
 @export var damage: int = 5
+@export var health_ui: ProgressBar
 
 func _ready() -> void:
 	for node in get_tree().get_nodes_in_group("player"):
 		player =node
-
+	health_ui.max_value = health
+	health_ui.min_value = 0
+	health_ui.value = health
 
 func _process(delta: float) -> void:
 	if not player == null:
@@ -20,6 +22,7 @@ func _process(delta: float) -> void:
 		
 func take_damage() -> void:
 	health -= 1
+	health_ui.value = health
 	print("enemy health: ", health)
 	if health <= 0:
 		queue_free()
