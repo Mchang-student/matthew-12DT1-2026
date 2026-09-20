@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bufx7libqi2hy" path="res://Assets/4fbe4343-e23f-4565-8c1e-0b6c3a752942-removebg-preview.png" id="3_pa8r4"]
 [ext_resource type="PackedScene" uid="uid://dm30aos1hx7pb" path="res://scenes/weak_enemy.tscn" id="4_15mv3"]
 [ext_resource type="Texture2D" uid="uid://b3pv7slm8qegj" path="res://Assets/coremansion.png" id="5_e3sih"]
+[ext_resource type="Texture2D" uid="uid://b1wluykmvvox4" path="res://Assets/old core mansion.png.png" id="6_15mv3"]
 [ext_resource type="Script" uid="uid://wxb4oph44iaj" path="res://scripts/car.gd" id="6_fcfvj"]
 [ext_resource type="Texture2D" uid="uid://b7rh77mpvir6n" path="res://Assets/RonGt3RS.png" id="7_pa8r4"]
 
@@ -62,10 +63,10 @@ size = Vector2(2878, 299)
 size = Vector2(1005, 217)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4p75b"]
-size = Vector2(1041, 206)
+size = Vector2(911, 206)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pa8r4"]
-size = Vector2(259.5, 140)
+size = Vector2(284.25, 140)
 
 [node name="Node2D" type="Node2D" unique_id=2141655706]
 
@@ -107,6 +108,7 @@ offset_top = 21.0
 offset_right = 306.0
 offset_bottom = 55.0
 theme_override_font_sizes/font_size = 20
+metadata/_edit_use_anchors_ = true
 
 [node name="RageProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=2145405824]
 offset_left = 24.0
@@ -115,12 +117,14 @@ offset_right = 321.0
 offset_bottom = 98.0
 theme_override_styles/background = SubResource("StyleBoxFlat_r4wdr")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bhu28")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="CanvasLayer" unique_id=695816662]
 offset_left = 24.0
 offset_top = 69.0
 offset_right = 418.0
 offset_bottom = 169.0
+metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2081261069]
 
@@ -178,7 +182,7 @@ shape = SubResource("RectangleShape2D_bhu28")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBodyMansion" unique_id=1823136859]
 z_index = -1
-position = Vector2(2063.5, 237)
+position = Vector2(2128.5, 237)
 shape = SubResource("RectangleShape2D_4p75b")
 
 [node name="Coremansion" type="Sprite2D" parent="StaticBodyMansion" unique_id=146382777]
@@ -187,15 +191,19 @@ position = Vector2(1302.0001, 14.999999)
 scale = Vector2(3.6367898, 3.8515916)
 texture = ExtResource("5_e3sih")
 
+[node name="OldCoreMansion_png" type="Sprite2D" parent="StaticBodyMansion" unique_id=2105156249]
+position = Vector2(602, -190)
+texture = ExtResource("6_15mv3")
+
 [node name="Car" type="Area2D" parent="." unique_id=896742336]
 script = ExtResource("6_fcfvj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Car" unique_id=886473372]
-position = Vector2(2876.75, 1000)
+position = Vector2(2852.875, 996.75)
 shape = SubResource("RectangleShape2D_pa8r4")
 
 [node name="RonGt3rs" type="Sprite2D" parent="Car" unique_id=1928604015]
-position = Vector2(2888, 1001)
+position = Vector2(2851.75, 997.75)
 rotation = 3.1415925
 scale = Vector2(0.4955687, 0.5785908)
 texture = ExtResource("7_pa8r4")

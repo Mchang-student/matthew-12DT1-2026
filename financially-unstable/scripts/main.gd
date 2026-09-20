@@ -9,6 +9,11 @@ func _ready() -> void:
 
 func load_level(new_level: int) -> void:
 	if current_level_root:
+		#grab the old player's stats before the level (and its player) is destroyed
+		var old_player = get_tree().get_first_node_in_group("player")
+		if old_player:
+			PlayerData.health = old_player .health
+			PlayerData.rage = old_player .rage
 		current_level_root.queue_free()
 
 	var level_path = "res://scenes/level_%s.tscn" % new_level

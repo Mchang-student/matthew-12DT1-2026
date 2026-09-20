@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed: float = 250.0
 var player : CharacterBody2D
-var health: int = 3
+var health: int = 30
 @export var damage: int = 5
 @export var health_ui: ProgressBar
 
@@ -20,8 +20,8 @@ func _process(delta: float) -> void:
 		
 		move_and_slide()
 		
-func take_damage() -> void:
-	health -= 1
+func take_damage(amount: int) -> void:
+	health -= amount
 	health_ui.value = health
 	print("enemy health: ", health)
 	if health <= 0:

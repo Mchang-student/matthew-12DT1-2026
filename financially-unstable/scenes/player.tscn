@@ -71,5 +71,6 @@ shape = SubResource("CapsuleShape2D_qhqgy")
 position = Vector2(4.9999695, 4)
 scale = Vector2(2.027778, 2.1574075)
 sprite_frames = SubResource("SpriteFrames_g2els")
+animation = &"punch"
 
 [connection signal="body_entered" from="Pivot/PunchArea" to="." method="_punch"]

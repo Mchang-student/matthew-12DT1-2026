@@ -15,9 +15,13 @@ run/main_scene="uid://bn2cehnytnk4m"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PlayerData="*uid://b3x46vlwmw40j"
+
 [editor]
 
-movie_writer/movie_file="C:/Users/Matthew/Videos/Captures/prototype.avi"
+movie_writer/movie_file="C:/Users/Matthew/Videos/Captures/vertical_slice.avi"
 
 [input]
 
