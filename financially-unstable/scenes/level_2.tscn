@@ -18,7 +18,7 @@ bg_color = Color(0.4074981, 0.12700713, 0.84011555, 1)
 [node name="Node2D" type="Node2D" unique_id=761416984]
 
 [node name="Player" parent="." unique_id=1463893504 node_paths=PackedStringArray("health_ui", "health_label", "rage_ui") instance=ExtResource("1_3bmlt")]
-position = Vector2(142, 268)
+position = Vector2(76, 510)
 health_ui = NodePath("../CanvasLayer/ProgressBar")
 health_label = NodePath("../CanvasLayer/Label")
 rage_ui = NodePath("../CanvasLayer/RageProgressBar")
@@ -63,6 +63,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Level2Backround" type="Sprite2D" parent="." unique_id=1298901392]
 z_index = -1
-position = Vector2(576, 324)
-scale = Vector2(5.9999995, 6)
+position = Vector2(955.5, 439.5)
+scale = Vector2(9.953124, 8.138888)
 texture = ExtResource("2_jm1iu")

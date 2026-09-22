@@ -16,6 +16,7 @@ var max_health : int = 100      #health cap
 @export var punch_collision: CollisionShape2D		#hitbox that turns on during a punch
 @export var rage_ui : ProgressBar					#rage bar UI
 @export var punch_damage: int = 10
+@export var punch_duration: float = 0.2
 
 func _ready() -> void:
 	#restore health and rage carried over from the previous level, if any
@@ -64,8 +65,8 @@ func _start_punch() -> void:
 	animated_sprite.play("punch")
 	print("playing punching animation")
 	punch_collision.disabled = false
-	#hitbox stays active for 0.2 seconds
-	await get_tree().create_timer(0.2).timeout 
+	#hitbox stays active for the punch_duration time, which is 0.2s
+	await get_tree().create_timer(punch_duration).timeout 
 	punch_collision.disabled = true
 	is_punching = false
 
