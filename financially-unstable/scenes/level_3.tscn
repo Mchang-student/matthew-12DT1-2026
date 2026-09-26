@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d1hsonn8bmhoh" path="res://scenes/player.tscn" id="11_56dhn"]
 [ext_resource type="PackedScene" uid="uid://dm30aos1hx7pb" path="res://scenes/weak_enemy.tscn" id="12_ax3dk"]
 [ext_resource type="PackedScene" uid="uid://c0cks6giuknsx" path="res://scenes/boss.tscn" id="13_q2dsb"]
+[ext_resource type="PackedScene" uid="uid://cxc1ktb7t20ct" path="res://scenes/money.tscn" id="14_p3r0x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ax3dk"]
 bg_color = Color(0.47899103, 0.46290696, 0.44930053, 1)
@@ -97,6 +98,18 @@ b = Vector2(280, 1140)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_5kn0t"]
 a = Vector2(163, 1138)
 b = Vector2(164, 517)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_una4e"]
+bg_color = Color(0.7998925, 0, 0.2463646, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ema3p"]
+bg_color = Color(0.22352941, 0.98039216, 0, 1)
+
+[sub_resource type="Curve2D" id="Curve2D_q2dsb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1347, 894, 0, 0, 0, 0, 1861, 328, 0, 0, 0, 0, 3536, 325, 0, 0, 0, 0, 3981, 814, 0, 0, 0, 0, 3988, 1544, 0, 0, 0, 0, 3474, 2131, 0, 0, 0, 0, 1968, 2129, 0, 0, 0, 0, 1347, 1544)
+}
+point_count = 8
 
 [node name="Node2D" type="Node2D" unique_id=5471303]
 
@@ -342,5 +355,26 @@ shape = SubResource("SegmentShape2D_5kn0t")
 [node name="CharacterBody2D" parent="." unique_id=562531961 instance=ExtResource("12_ax3dk")]
 position = Vector2(2778, 1623)
 
-[node name="CharacterBody2D2" parent="." unique_id=87939653 instance=ExtResource("13_q2dsb")]
+[node name="Banks(boss)" parent="." unique_id=87939653 node_paths=PackedStringArray("health_ui", "fry_spawn_point") instance=ExtResource("13_q2dsb")]
 position = Vector2(2306, 689)
+health_ui = NodePath("BossHealth")
+money_scene = ExtResource("14_p3r0x")
+fry_spawn_point = NodePath("../FrySpawnPath/PathFollow2D")
+fry_scene = ExtResource("12_ax3dk")
+
+[node name="BossHealth" type="ProgressBar" parent="Banks(boss)" unique_id=1003932210]
+offset_left = 91.0
+offset_top = -107.0
+offset_right = 727.0
+offset_bottom = -23.0
+theme_override_styles/background = SubResource("StyleBoxFlat_una4e")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ema3p")
+step = 10.0
+show_percentage = false
+
+[node name="FrySpawnPath" type="Path2D" parent="." unique_id=721615713]
+curve = SubResource("Curve2D_q2dsb")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="FrySpawnPath" unique_id=2013481337]
+position = Vector2(1347, 894)
+rotation = -0.83350915

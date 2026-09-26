@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c0cks6giuknsx"]
 
 [ext_resource type="Texture2D" uid="uid://cknulm0qwtlhd" path="res://Assets/Banks Drawing.png" id="1_0bnu1"]
+[ext_resource type="Script" uid="uid://rrgxi271q5u6" path="res://scripts/boss.gd" id="1_neq0i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0bnu1"]
 radius = 131.0
@@ -10,7 +11,11 @@ height = 660.0
 radius = 138.0
 height = 672.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=87939653]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=87939653 node_paths=PackedStringArray("pivot", "money_spawn")]
+position = Vector2(-67, 25)
+script = ExtResource("1_neq0i")
+pivot = NodePath("Pivot")
+money_spawn = NodePath("MoneySpawn")
 
 [node name="BanksDrawing" type="Sprite2D" parent="." unique_id=2049593935]
 z_index = 1
@@ -27,3 +32,8 @@ shape = SubResource("CapsuleShape2D_0bnu1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1069493580]
 position = Vector2(415, 314)
 shape = SubResource("CapsuleShape2D_6xxrv")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=1899289264]
+
+[node name="MoneySpawn" type="Marker2D" parent="." unique_id=247538869]
+position = Vector2(415, 128)
