@@ -5,6 +5,7 @@ var health : int = 100  		#current health
 var is_punching: bool = false	#tracks if the punch animation is currently playing
 var rage: float = 0.0			#current rage meter value
 var max_rage : float = 100.0	#rage meter cap
+var add_rage : float = 20
 var is_enraged : bool = false	#tracks if rage mode is active
 var max_health : int = 100      #health cap
 
@@ -17,6 +18,9 @@ var max_health : int = 100      #health cap
 @export var rage_ui : ProgressBar					#rage bar UI
 @export var punch_damage: int = 10
 @export var punch_duration: float = 0.2
+@export var normal_speed: float = 400.0
+@export var rage_speed: float = 700.0
+@export var rage_duration: float = 5.0
 
 func _ready() -> void:
 	#restore health and rage carried over from the previous level, if any
@@ -85,7 +89,7 @@ func _punch(body: Node2D) -> void:
 	if body.has_method("take_damage"):
 		body.take_damage(punch_damage)
 		#build rage on a sucessful hit, capped at max_rage
-		rage += 20.0		
+		rage += add_rage		
 		rage = min(rage, max_rage) 
 		rage_ui.value = rage
 		#trigger rage mode once the bar if full
@@ -95,12 +99,16 @@ func _punch(body: Node2D) -> void:
 func _activate_rage() -> void:
 	#temporary speed boost when rage mode is on
 	is_enraged = true
-	speed = 700.0
+	var original_speed = speed
+	speed = rage_speed
 	print("RAGE ACTIVATED")
-	await get_tree().create_timer(5.0).timeout 
+	
+	var tween = create_tween()
+	tween.tween_property(rage_ui, "value", 0.0, rage_duration)
+	
+	await get_tree().create_timer(rage_duration).timeout 
 	#reset speed back to normal 
-	speed = 400.0 	
+	speed = original_speed
 	is_enraged = false
 	#reset rage
-	rage = 0.0  		
-	rage_ui.value = 0.0
+	rage = 0.0  

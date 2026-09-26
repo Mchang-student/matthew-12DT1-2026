@@ -23,6 +23,8 @@ health_ui = NodePath("../CanvasLayer/ProgressBar")
 health_label = NodePath("../CanvasLayer/Label")
 rage_ui = NodePath("../CanvasLayer/RageProgressBar")
 
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=426551430]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=828214909]
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1489979594]
