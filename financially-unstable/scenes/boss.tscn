@@ -11,8 +11,9 @@ height = 660.0
 radius = 138.0
 height = 672.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=87939653 node_paths=PackedStringArray("pivot", "money_spawn")]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=87939653 node_paths=PackedStringArray("pivot", "money_spawn") groups=["enemy"]]
 position = Vector2(-67, 25)
+collision_layer = 2
 script = ExtResource("1_neq0i")
 pivot = NodePath("Pivot")
 money_spawn = NodePath("MoneySpawn")

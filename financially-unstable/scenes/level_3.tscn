@@ -99,22 +99,32 @@ b = Vector2(280, 1140)
 a = Vector2(163, 1138)
 b = Vector2(164, 517)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_una4e"]
-bg_color = Color(0.7998925, 0, 0.2463646, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ema3p"]
-bg_color = Color(0.22352941, 0.98039216, 0, 1)
-
 [sub_resource type="Curve2D" id="Curve2D_q2dsb"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1347, 894, 0, 0, 0, 0, 1861, 328, 0, 0, 0, 0, 3536, 325, 0, 0, 0, 0, 3981, 814, 0, 0, 0, 0, 3988, 1544, 0, 0, 0, 0, 3474, 2131, 0, 0, 0, 0, 1968, 2129, 0, 0, 0, 0, 1347, 1544)
 }
 point_count = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_una4e"]
+bg_color = Color(0.47843137, 0.4627451, 0.4509804, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ema3p"]
+bg_color = Color(1, 0.0627451, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
 [node name="Node2D" type="Node2D" unique_id=5471303]
 
 [node name="Level3" type="Sprite2D" parent="." unique_id=695752350]
-position = Vector2(1787, 1321.0001)
+position = Vector2(1787, 1315)
 scale = Vector2(17.987541, 16.227133)
 texture = ExtResource("1_1pn4d")
 
@@ -125,9 +135,6 @@ scale = Vector2(1.4700617, 1.4372209)
 health_ui = NodePath("../CanvasLayer/ProgressBar")
 health_label = NodePath("../CanvasLayer/Label")
 rage_ui = NodePath("../CanvasLayer/RageProgressBar")
-normal_speed = 500.0
-rage_speed = 800.0
-rage_duration = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1027082588]
 zoom = Vector2(0.5, 0.5)
@@ -357,20 +364,10 @@ position = Vector2(2778, 1623)
 
 [node name="Banks(boss)" parent="." unique_id=87939653 node_paths=PackedStringArray("health_ui", "fry_spawn_point") instance=ExtResource("13_q2dsb")]
 position = Vector2(2306, 689)
-health_ui = NodePath("BossHealth")
+health_ui = NodePath("../Boss HUD/BossHealthBar")
 money_scene = ExtResource("14_p3r0x")
 fry_spawn_point = NodePath("../FrySpawnPath/PathFollow2D")
 fry_scene = ExtResource("12_ax3dk")
-
-[node name="BossHealth" type="ProgressBar" parent="Banks(boss)" unique_id=1003932210]
-offset_left = 91.0
-offset_top = -107.0
-offset_right = 727.0
-offset_bottom = -23.0
-theme_override_styles/background = SubResource("StyleBoxFlat_una4e")
-theme_override_styles/fill = SubResource("StyleBoxFlat_ema3p")
-step = 10.0
-show_percentage = false
 
 [node name="FrySpawnPath" type="Path2D" parent="." unique_id=721615713]
 curve = SubResource("Curve2D_q2dsb")
@@ -378,3 +375,38 @@ curve = SubResource("Curve2D_q2dsb")
 [node name="PathFollow2D" type="PathFollow2D" parent="FrySpawnPath" unique_id=2013481337]
 position = Vector2(1347, 894)
 rotation = -0.83350915
+
+[node name="Boss HUD" type="CanvasLayer" parent="." unique_id=290418909]
+
+[node name="BossHealthBar" type="ProgressBar" parent="Boss HUD" unique_id=2078963863]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -241.0
+offset_top = -79.0
+offset_right = 243.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_una4e")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ema3p")
+show_percentage = false
+
+[node name="BossNameLabel" type="Label" parent="Boss HUD" unique_id=1320472241]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -123.0
+offset_top = -129.0
+offset_right = 85.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 35
+text = "BANKS (BOSS)"
+horizontal_alignment = 1
