@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://c42pw6sha2eb7"]
 
 [ext_resource type="PackedScene" uid="uid://d1hsonn8bmhoh" path="res://scenes/player.tscn" id="1_3bmlt"]
-[ext_resource type="Texture2D" uid="uid://d31fx0sgpj7p7" path="res://Assets/Level2Backround.png" id="2_jm1iu"]
+[ext_resource type="Texture2D" uid="uid://xaxelwq1rlsh" path="res://Assets/Updated Level 2.png" id="2_jm1iu"]
+[ext_resource type="Texture2D" uid="uid://cavhvpob54ikq" path="res://Assets/money (2).png" id="2_wo48x"]
+[ext_resource type="Texture2D" uid="uid://cifkrb70opae" path="res://Assets/car rental sign.png" id="3_y0kc7"]
+[ext_resource type="Texture2D" uid="uid://dup7dvotd84tl" path="res://Assets/Sign.png" id="4_ne2mo"]
+[ext_resource type="Texture2D" uid="uid://b8wsrq2fcoc4d" path="res://Assets/Bank's limo.png" id="6_6cvei"]
+[ext_resource type="Script" uid="uid://wxb4oph44iaj" path="res://scripts/car.gd" id="6_ne2mo"]
+[ext_resource type="PackedScene" uid="uid://dm30aos1hx7pb" path="res://scenes/weak_enemy.tscn" id="7_y0kc7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3bmlt"]
 bg_color = Color(0.47899103, 0.46290696, 0.44930053, 1)
@@ -15,15 +21,40 @@ bg_color = Color(0.40784314, 0.1254902, 0.8392157, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqxsl"]
 bg_color = Color(0.4074981, 0.12700713, 0.84011555, 1)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jm1iu"]
+normal = Vector2(1, 0)
+distance = 9.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pbc48"]
+normal = Vector2(0, 1)
+distance = -55.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eqxsl"]
+normal = Vector2(-0.9999762, -0.006896388)
+distance = -3604.6316
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b4j7a"]
+distance = -272.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wo48x"]
+radius = 34.548462
+height = 415.73096
+
 [node name="Node2D" type="Node2D" unique_id=761416984]
 
 [node name="Player" parent="." unique_id=1463893504 node_paths=PackedStringArray("health_ui", "health_label", "rage_ui") instance=ExtResource("1_3bmlt")]
-position = Vector2(76, 510)
+z_index = 1
+position = Vector2(122, 791)
 health_ui = NodePath("../CanvasLayer/ProgressBar")
 health_label = NodePath("../CanvasLayer/Label")
 rage_ui = NodePath("../CanvasLayer/RageProgressBar")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=426551430]
+zoom = Vector2(0.7, 0.7)
+limit_left = 0
+limit_top = 0
+limit_right = 3593
+limit_bottom = 1188
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=828214909]
 
@@ -63,8 +94,158 @@ offset_right = 418.0
 offset_bottom = 169.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Level2Backround" type="Sprite2D" parent="." unique_id=1298901392]
+[node name="Props" type="Node2D" parent="." unique_id=950615741]
+
+[node name="Money(2)11" type="Sprite2D" parent="Props" unique_id=1275521459]
+position = Vector2(2819.9998, 579)
+scale = Vector2(0.14059304, 0.14019625)
+texture = ExtResource("2_wo48x")
+
+[node name="Money(2)12" type="Sprite2D" parent="Props" unique_id=1252253038]
+position = Vector2(2397.9998, 615)
+rotation = -1.0471976
+scale = Vector2(0.14059304, 0.14019625)
+texture = ExtResource("2_wo48x")
+
+[node name="Money(2)13" type="Sprite2D" parent="Props" unique_id=404157303]
+position = Vector2(2144, 651)
+scale = Vector2(0.14059304, 0.14019625)
+texture = ExtResource("2_wo48x")
+
+[node name="Money(2)14" type="Sprite2D" parent="Props" unique_id=1545863825]
+position = Vector2(1855.9999, 579)
+rotation = -0.7853982
+scale = Vector2(0.14059304, 0.14019625)
+texture = ExtResource("2_wo48x")
+
+[node name="Money(2)15" type="Sprite2D" parent="Props" unique_id=1689622060]
+position = Vector2(1531.9999, 587)
+scale = Vector2(0.14059304, 0.14019625)
+texture = ExtResource("2_wo48x")
+
+[node name="Money(2)16" type="Sprite2D" parent="Props" unique_id=1025661391]
+position = Vector2(1433.9999, 679)
+rotation = 1.0471976
+scale = Vector2(0.14059304, 0.14019625)
+texture = ExtResource("2_wo48x")
+
+[node name="Money(2)17" type="Sprite2D" parent="Props" unique_id=1649272105]
+position = Vector2(1178, 601)
+rotation = 1.0471976
+scale = Vector2(0.14059304, 0.14019625)
+texture = ExtResource("2_wo48x")
+
+[node name="Money(2)18" type="Sprite2D" parent="Props" unique_id=715468932]
+position = Vector2(1100, 615)
+scale = Vector2(0.14059304, 0.14019625)
+texture = ExtResource("2_wo48x")
+
+[node name="Money(2)19" type="Sprite2D" parent="Props" unique_id=77025347]
+position = Vector2(833.99994, 611)
+rotation = 2.3561945
+scale = Vector2(0.14059304, 0.14019625)
+texture = ExtResource("2_wo48x")
+
+[node name="Money(2)20" type="Sprite2D" parent="Props" unique_id=667072891]
+position = Vector2(548, 693)
+rotation = 0.5235988
+scale = Vector2(0.14059304, 0.14019625)
+texture = ExtResource("2_wo48x")
+
+[node name="Money(2)21" type="Sprite2D" parent="Props" unique_id=569089959]
+position = Vector2(3240, 464)
+scale = Vector2(0.14059304, 0.14019625)
+texture = ExtResource("2_wo48x")
+
+[node name="Money(2)22" type="Sprite2D" parent="Props" unique_id=1023834914]
+position = Vector2(3002.9998, 514)
+rotation = 0.5235988
+scale = Vector2(0.14059304, 0.14019625)
+texture = ExtResource("2_wo48x")
+
+[node name="Money(2)23" type="Sprite2D" parent="Props" unique_id=749324484]
+position = Vector2(2574.9998, 615)
+scale = Vector2(0.14059304, 0.14019625)
+texture = ExtResource("2_wo48x")
+
+[node name="Money(2)24" type="Sprite2D" parent="Props" unique_id=1831352577]
+position = Vector2(259, 732)
+scale = Vector2(0.14059304, 0.14019625)
+texture = ExtResource("2_wo48x")
+
+[node name="Money(2)25" type="Sprite2D" parent="Props" unique_id=885416698]
+position = Vector2(3165, 273)
+scale = Vector2(0.14059304, 0.14019625)
+texture = ExtResource("2_wo48x")
+
+[node name="Money(2)26" type="Sprite2D" parent="Props" unique_id=711572265]
+position = Vector2(3154.9998, 499.99994)
+rotation = 0.7853982
+scale = Vector2(0.14059304, 0.14019625)
+texture = ExtResource("2_wo48x")
+
+[node name="CarRentalSign" type="Sprite2D" parent="Props" unique_id=679246213]
+position = Vector2(3441, 38)
+scale = Vector2(0.51697314, 0.22521247)
+texture = ExtResource("3_y0kc7")
+
+[node name="Money(2)27" type="Sprite2D" parent="Props" unique_id=1611200961]
+position = Vector2(3389, 454)
+scale = Vector2(0.14059304, 0.14019625)
+texture = ExtResource("2_wo48x")
+
+[node name="Sign" type="Sprite2D" parent="Props" unique_id=1526988320]
+position = Vector2(3063.0002, 328.00003)
+scale = Vector2(0.2835117, 0.3130596)
+texture = ExtResource("4_ne2mo")
+
+[node name="ColorRect" type="ColorRect" parent="Props/Sign" unique_id=691220680]
 z_index = -1
-position = Vector2(955.5, 439.5)
-scale = Vector2(9.953124, 8.138888)
+offset_left = -51.16968
+offset_top = 127.73833
+offset_right = 24.238522
+offset_bottom = 300.56073
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="UpdatedLevel2" type="Sprite2D" parent="." unique_id=367840258]
+z_index = -2
+position = Vector2(1799.625, 594.75)
+scale = Vector2(9.335286, 11.00463)
 texture = ExtResource("2_jm1iu")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=137414535]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1933957538]
+position = Vector2(0, 587)
+shape = SubResource("WorldBoundaryShape2D_jm1iu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=155717543]
+position = Vector2(1360, 55)
+shape = SubResource("WorldBoundaryShape2D_pbc48")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=307621245]
+position = Vector2(-13, 672)
+shape = SubResource("WorldBoundaryShape2D_eqxsl")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=541499216]
+position = Vector2(1360, 916)
+shape = SubResource("WorldBoundaryShape2D_b4j7a")
+
+[node name="Car" type="Area2D" parent="." unique_id=92848236]
+script = ExtResource("6_ne2mo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Car" unique_id=1116450567]
+position = Vector2(3404.5, 355.25)
+rotation = -1.5707964
+scale = Vector2(1.9103605, 0.8851883)
+shape = SubResource("CapsuleShape2D_wo48x")
+
+[node name="Bank\'sLimo" type="Sprite2D" parent="Car" unique_id=2063680586]
+position = Vector2(3430.5, 355.25)
+scale = Vector2(1.1225, 1.1725147)
+texture = ExtResource("6_6cvei")
+
+[node name="CharacterBody2D" parent="." unique_id=562531961 instance=ExtResource("7_y0kc7")]
+position = Vector2(3355, 800)
